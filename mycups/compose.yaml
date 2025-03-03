@@ -1,0 +1,14 @@
+services:
+  cups:
+    image: mycups-foo2zjs:0.4
+    privileged: true 
+    build: /home/brian/docker/mycups
+    container_name: cups
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - /dev/usb:/dev/usb
+      - /var/run/dbus/var/run/dbus
+      - /home/brian/docker/airprint_data/config:/config
+      - /home/brian/docker/airprint_data/services:/services
+
