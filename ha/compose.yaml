@@ -10,3 +10,15 @@ services:
         volumes:
             - /home/brian/docker/homeAssistant/data:/config
         restart: unless-stopped
+    mosquitto:
+        image: eclipse-mosquitto
+        container_name: mosquitto
+        volumes:
+            - /home/brian/docker/mosquitto:/mosquitto
+            - /home/brian/docker/mosquitto/config:/mosquitto/config
+            - /home/brian/docker/mosquitto/data:/mosquitto/data
+            - /home/brian/docker/mosquitto/log:/mosquitto/log
+        ports:
+            - 1883:1883
+            - 9001:9001    
+        restart: unless-stopped
